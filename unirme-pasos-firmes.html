@@ -29,7 +29,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -357,11 +356,7 @@
   .q-textarea { min-height: 80px; resize: vertical; }
 
   /* ── RADIO + CHECKBOX OPTIONS ── */
-  .opt-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
+  .opt-list { display: flex; flex-direction: column; gap: 0.55rem; }
 
   .opt {
     display: flex;
@@ -426,10 +421,7 @@
     background: rgba(20,189,172,0.12);
   }
 
-  .opt-text strong {
-    color: var(--white);
-    font-weight: 700;
-  }
+  .opt-text strong { color: var(--white); font-weight: 700; }
 
   /* ── BUTTONS ── */
   .form-nav {
@@ -453,6 +445,8 @@
     cursor: pointer;
     transition: all 0.2s;
     letter-spacing: 0.04em;
+    text-decoration: none;
+    display: inline-block;
   }
   .btn-back:hover {
     border-color: var(--ocean-aqua);
@@ -473,6 +467,8 @@
     letter-spacing: 0.04em;
     box-shadow: 0 4px 24px rgba(20,189,172,0.35);
     transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
   }
   .btn-next:hover,
   .btn-submit:hover {
@@ -529,6 +525,12 @@
     margin: 0 auto 2rem;
     font-style: italic;
   }
+  .success-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -558,7 +560,9 @@
     nav { padding: 0 1.5rem; }
     .step-title { font-size: 1.2rem; }
     .form-nav { flex-direction: column-reverse; }
-    .btn-back, .btn-next, .btn-submit { width: 100%; }
+    .btn-back, .btn-next, .btn-submit { width: 100%; text-align: center; }
+    .success-actions { flex-direction: column; }
+    .success-actions .btn-next, .success-actions .btn-back { width: 100%; }
   }
 </style>
 </head>
@@ -566,7 +570,7 @@
 
 <!-- NAVBAR -->
 <nav>
-  <a href="pasos-firmes-cmt.html" class="nav-logo" aria-label="Pasos Firmes - Inicio">
+  <a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/" class="nav-logo" aria-label="Pasos Firmes - Inicio">
     <img
       src="https://raw.githubusercontent.com/scarletgalicia-collab/pasos-firmes-assets/main/logo%20cmt.png"
       alt="Logo Pasos Firmes"
@@ -574,12 +578,12 @@
     >
   </a>
   <ul class="nav-links">
-    <li><a href="pasos-firmes-cmt.html#que-es">Qué es CMT</a></li>
-    <li><a href="pasos-firmes-cmt.html#camino">El Camino</a></li>
-    <li><a href="pasos-firmes-cmt.html#historias">Historias</a></li>
-    <li><a href="pasos-firmes-cmt.html#recursos">Recursos</a></li>
+    <li><a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/#que-es">Qué es CMT</a></li>
+    <li><a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/#camino">El Camino</a></li>
+    <li><a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/#historias">Historias</a></li>
+    <li><a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/#recursos">Recursos</a></li>
   </ul>
-  <a href="pasos-firmes-cmt.html" class="nav-cta">Volver al inicio</a>
+  <a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/" class="nav-cta">Volver al inicio</a>
 </nav>
 
 <!-- FORM HERO -->
@@ -591,7 +595,6 @@
 
   <div class="form-shell">
 
-    <!-- INTRO -->
     <div class="form-intro">
       <div class="form-badge">
         <div class="badge-dot"></div>
@@ -607,7 +610,6 @@
       </p>
     </div>
 
-    <!-- PROGRESS -->
     <div class="progress-wrap">
       <div class="progress-meta">
         <span>Paso <strong id="cur-step">1</strong> de <strong>4</strong></span>
@@ -624,10 +626,9 @@
       </div>
     </div>
 
-    <!-- FORM CARD -->
     <form class="form-card" id="join-form" onsubmit="return handleSubmit(event)">
 
-      <!-- ───── PASO 1: DATOS PERSONALES ───── -->
+      <!-- PASO 1 -->
       <div class="form-step active" data-step="1">
         <div class="step-heading">
           <div class="step-num">1</div>
@@ -652,7 +653,7 @@
 
         <div class="q-block">
           <label class="q-label">¿Quién está llenando este formulario? <span class="req">*</span></label>
-          <div class="opt-list" data-required="true">
+          <div class="opt-list">
             <label class="opt">
               <input type="radio" name="quien_llena" value="paciente" required>
               <span class="opt-mark"></span>
@@ -685,7 +686,7 @@
         </div>
       </div>
 
-      <!-- ───── PASO 2: PERFIL CLÍNICO ───── -->
+      <!-- PASO 2 -->
       <div class="form-step" data-step="2">
         <div class="step-heading">
           <div class="step-num gold">2</div>
@@ -756,7 +757,7 @@
         </div>
       </div>
 
-      <!-- ───── PASO 3: TRATAMIENTOS ───── -->
+      <!-- PASO 3 -->
       <div class="form-step" data-step="3">
         <div class="step-heading">
           <div class="step-num coral">3</div>
@@ -804,7 +805,7 @@
         </div>
       </div>
 
-      <!-- ───── PASO 4: PARTICIPACIÓN COMUNITARIA ───── -->
+      <!-- PASO 4 -->
       <div class="form-step" data-step="4">
         <div class="step-heading">
           <div class="step-num aqua">4</div>
@@ -828,7 +829,7 @@
         </div>
       </div>
 
-      <!-- ───── PANTALLA DE ÉXITO ───── -->
+      <!-- ÉXITO -->
       <div class="form-step" data-step="success">
         <div class="success">
           <div class="success-icon">✓</div>
@@ -838,9 +839,9 @@
             con recursos personalizados según tu perfil. Formar parte de esta comunidad
             es dar un paso firme hacia el acompañamiento y la esperanza.
           </p>
-          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-            <a href="pasos-firmes-cmt.html" class="btn-next">Volver al inicio</a>
-            <a href="pasos-firmes-cmt.html#comunidad" class="btn-back">Explorar comunidad</a>
+          <div class="success-actions">
+            <a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/" class="btn-next">Volver al inicio</a>
+            <a href="https://scarletgalicia-collab.github.io/pasos-firmes-web/#comunidad" class="btn-back">Explorar comunidad</a>
           </div>
         </div>
       </div>
@@ -855,7 +856,7 @@
   <div class="footer-copy">2025 Pasos Firmes — Todos los derechos reservados · Formulario de inscripción</div>
 </footer>
 
-<!-- ── SCRIPT: lógica del wizard ── -->
+<!-- SCRIPT -->
 <script>
   let currentStep = 1;
   const totalSteps = 4;
@@ -871,12 +872,10 @@
     const target = document.querySelector(`.form-step[data-step="${step}"]`);
     if (target) target.classList.add('active');
 
-    // Update progress bar
     const fill = document.getElementById('progress-fill');
     const percent = step === 'success' ? 100 : (step / totalSteps) * 100;
     fill.style.width = percent + '%';
 
-    // Update meta
     if (step !== 'success') {
       document.getElementById('cur-step').textContent = step;
       document.getElementById('step-name').textContent = stepNames[step];
@@ -885,7 +884,6 @@
       document.getElementById('step-name').textContent = 'Registro completado';
     }
 
-    // Update pills
     document.querySelectorAll('.step-pill').forEach(p => {
       const pStep = parseInt(p.dataset.step);
       p.classList.remove('active', 'done');
@@ -898,7 +896,6 @@
       }
     });
 
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -922,12 +919,10 @@
     return false;
   }
 
-  // Visual feedback when selecting radio/checkbox options
   document.querySelectorAll('.opt input').forEach(input => {
     input.addEventListener('change', function() {
       const optList = this.closest('.opt-list');
       if (!optList) return;
-
       if (this.type === 'radio') {
         optList.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
       }
@@ -939,3 +934,4 @@
 
 </body>
 </html>
+
